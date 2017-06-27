@@ -1,0 +1,8 @@
+meteor -> To open the app
+meteor search -> to search a particular package
+meteor add-> to add packages
+atmospherejs-> for searching more packages
+accounts-ui and accounts-password-> for user authentication
+accounts-facebbok facebook-config-ui -> faceboobk authentication 
+acoounts-google google-config-ui -> google authentication
+iron:router -> for routing

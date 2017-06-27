@@ -1,0 +1,99 @@
+<head>
+  <title>simple-app</title>
+</head>
+
+
+<body>
+{{> navbar}}
+{{> user }}
+{{> addimages}}
+{{> hello}} 
+{{> images}}
+</body>
+<template name="ApplicationLayout">
+	{{> yield "navbar"}}
+	{{> yield "main" }}
+</template>
+<template name='hello'>
+<button>Click Me</button>
+<p>You have pressed the button {{counter}} times</p>
+</template>
+
+<template name='user' >
+<div class="container">
+<div >
+<h1> Hi {{username}} </h1>
+</div>
+</div>
+</template>
+<template name="images">
+	
+	<div class="container">
+	{{#if currentUser }}
+	<button class=" js-hide btn btn-success btn-sm" id="12">Add Image</button>
+	{{/if}}	
+	<br>
+	<div class="row">	
+		{{#each image}}
+		
+			<div class="col-xs-6 col-md-4 col-lg-3">
+				<div class="thumbnail" id="{{_id}}" >
+					<img class="js-mouse" id="sm1" src="{{img_src}}" alt="{{img_alt}}" />
+					<p>Rating:{{rating}}</p>
+					<p>{{img_alt}}</p>
+					<p>{{> starsRating mutable=true class="js-rating" id=_id size="lg" }}</p>
+					<button class="js-del-btn btn btn-danger">Delete</button>					
+				</div>
+			</div>
+		{{/each}}
+	</div>
+	</div>
+</template>
+
+
+<template name="addimages">
+		<div class="container" id="show"  >
+		<div class="jumbotron"  >		
+		<form class="js-addimage"  >
+		<h2>ADD IMAGE:</h2>	
+		<label>URL:</label>
+		<input class="form-control" id="src" type="text" name="img_src" placeholder="Copy-Paste URL">
+		<label>Text:</label>
+		<input class="form-control" id="alt" type="text" name="img_alt" placeholder="Description">
+		<br>	
+		<button class=" btn btn-primary">SUBMIT</button>	
+		<br>
+		</form>
+		<br>
+		
+		
+</div>
+</div>
+</template>
+
+<template name="navbar" >
+
+	<div>
+		<div class="navbar navbar-default">
+				<div class="container">
+				<div class="navbar-header">	
+				<a class="navbar-brand" href="#">Image Share</a>
+				</div>
+			
+				<div class="nav navbar-nav">
+				<li><a href="#">About</a></li>
+				</div>
+
+				<div class="nav navbar-nav navbar-right">
+				<li><a href="#">{{>loginButtons align="right"}}</a></li>
+				<li><a href="#">FAQ</a></li>
+				<li><a href="#">Help</a></li>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</template>
+
+
+
